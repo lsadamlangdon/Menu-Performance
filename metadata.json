@@ -1,0 +1,7 @@
+{
+  "name": "Menu Performance & Profit Score",
+  "description": "A professional hospitality analyst tool that evaluates restaurant menus for simplicity, pricing structure, and profitability potential using AI-driven benchmarks.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
