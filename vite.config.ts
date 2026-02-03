@@ -5,19 +5,24 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
+  // 👇 Safe fallback: empty string if no API key
+  const geminiApiKey = env.GEMINI_API_KEY || '';
+
   return {
-    // 👇 Required for GitHub Pages (replace with your repo name)
     base: '/Menu-Performance/',
 
     server: {
       port: 3000,
       host: '0.0.0.0',
     },
+
     plugins: [react()],
+
     define: {
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+      'process.env.API_KEY': JSON.stringify(geminiApiKey),
+      'process.env.GEMINI_API_KEY': JSON.stringify(geminiApiKey),
     },
+
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
